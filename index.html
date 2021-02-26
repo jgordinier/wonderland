@@ -22,7 +22,7 @@
     var video = document.getElementById('video');
     if(Hls.isSupported()) {
         var hls = new Hls();
-        hls.loadSource('https://movietime-destination920a3c57-wqz3p2uhcitb.s3.amazonaws.com/6ae7f862-0c0b-4c02-9d7d-b84d8d8486b7/AppleHLS1/We.Need.To.Talk.About.Kevin.2011.1080p.BluRay.H264.AAC-RARBG.m3u8');
+        hls.loadSource('https://a32493d4d49a22c11e3930ddd718f29c.egress.mediapackage-vod.us-east-1.amazonaws.com/out/v1/cf063fc4f50648c482c74736262ac9ab/0d71f58389224a20a9b2d2f78a21e909/742d1cc41d7d40518bda7c28817ab96a/index.m3u8');
         hls.attachMedia(video);
         hls.on(Hls.Events.MANIFEST_PARSED,function() {
             video.play();
@@ -34,7 +34,7 @@
     // Note: it would be more normal to wait on the 'canplay' event below however on Safari (where you are most likely to find built-in HLS support) the video.src URL must be on the user-driven
     // white-list before a 'canplay' event will be emitted; the last video event that can be reliably listened-for when the URL is not on the white-list is 'loadedmetadata'.
     else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-        video.src = 'https://movietime-destination920a3c57-wqz3p2uhcitb.s3.amazonaws.com/6ae7f862-0c0b-4c02-9d7d-b84d8d8486b7/AppleHLS1/We.Need.To.Talk.About.Kevin.2011.1080p.BluRay.H264.AAC-RARBG.m3u8';
+        video.src = 'https://a32493d4d49a22c11e3930ddd718f29c.egress.mediapackage-vod.us-east-1.amazonaws.com/out/v1/cf063fc4f50648c482c74736262ac9ab/0d71f58389224a20a9b2d2f78a21e909/742d1cc41d7d40518bda7c28817ab96a/index.m3u8';
         video.addEventListener('loadedmetadata',function() {
             video.play();
         });
