@@ -34,7 +34,7 @@
     // Note: it would be more normal to wait on the 'canplay' event below however on Safari (where you are most likely to find built-in HLS support) the video.src URL must be on the user-driven
     // white-list before a 'canplay' event will be emitted; the last video event that can be reliably listened-for when the URL is not on the white-list is 'loadedmetadata'.
     else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-        video.src = 'https://e20604ef07e8336ff0929ea8d86cd342.egress.mediapackage-vod.us-east-1.amazonaws.com/out/v1/355b7150bcf14b9983768d087dfd291c/31cd178ecba441c9b76145a0305fd05c/8d904062595a47f09f4cec8d4e4009b6/index.m3u8';
+        video.src = 'https://movietime-destination920a3c57-wqz3p2uhcitb.s3.amazonaws.com/6ae7f862-0c0b-4c02-9d7d-b84d8d8486b7/AppleHLS1/We.Need.To.Talk.About.Kevin.2011.1080p.BluRay.H264.AAC-RARBG.m3u8';
         video.addEventListener('loadedmetadata',function() {
             video.play();
         });
