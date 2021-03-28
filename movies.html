@@ -7,9 +7,9 @@
 	<link href="https://fonts.gstatic.com" rel="preconnect">
 	<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 	<script src="https://kwes.io/v2/kwes-script.js" defer></script>
-    <link rel="nofollow" href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet"/>
-    <script src="http://vjs.zencdn.net/c/video.js"></script>
-	  <script src="https://unpkg.com/@videojs/http-streaming@1/dist/videojs-http-streaming.js"></script>
+    <script src="https://unpkg.com/jquery@1.11.2/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+	 <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
 	<style>
 	   .script {
 	      font-family: 'Pacifico', cursive;
@@ -102,11 +102,15 @@ border-radius: .5rem;
 
 							</div>
 						</div>
- <video id="my_video_1" class="video-js vjs-default-skin" controls
-        preload="auto" width="640" height="264" poster="https://scitechdaily.com/images/Cat-COVID-19-Mask.jpg"
-        data-setup="{}">
-        <source src="https://stream.mux.com/007rwZZxXijJ00M7COK4p01LrYsQt8Xfh01oUj5p3GAS02lw.m3u8" type="application/x-mpegURL"/>
-    </video>						
+<video-js id=example-video width=960 height=540 class="vjs-default-skin" controls>
+  <source
+     src="https://stream.mux.com/007rwZZxXijJ00M7COK4p01LrYsQt8Xfh01oUj5p3GAS02lw.m3u8"
+     type="application/x-mpegURL">
+</video-js>
+<script>
+var player = videojs('example-video');
+player.play();
+</script>					
 						<hr>
 
 						<div class="columns">
