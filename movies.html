@@ -7,9 +7,10 @@
 	<link href="https://fonts.gstatic.com" rel="preconnect">
 	<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 	<script src="https://kwes.io/v2/kwes-script.js" defer></script>
-    <script src="https://unpkg.com/jquery@1.11.2/dist/jquery.min.js"></script>
-    <script src="https://unpkg.com/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
-	 <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
+ <link href="http://vjs.zencdn.net/4.12/video-js.css" rel="stylesheet">
+  <script src="http://vjs.zencdn.net/4.12/video.js"></script>
+ <script src="https://github.com/videojs/videojs-contrib-media-sources/releases/download/v0.1.0/videojs-media-sources.js"></script>
+  <script src="https://github.com/videojs/videojs-contrib-hls/releases/download/v0.11.2/videojs.hls.min.js"></script>
 	<style>
 	   .script {
 	      font-family: 'Pacifico', cursive;
@@ -102,15 +103,14 @@ border-radius: .5rem;
 
 							</div>
 						</div>
-<video-js id=example-video width=960 height=540 class="vjs-default-skin" controls>
-  <source
-     src="https://stream.mux.com/007rwZZxXijJ00M7COK4p01LrYsQt8Xfh01oUj5p3GAS02lw.m3u8"
-     type="application/x-mpegURL">
-</video-js>
-<script>
-var player = videojs('example-video');
-player.play();
-</script>					
+ <video id="my_video_1" class="video-js vjs-default-skin" controls preload="auto" width="640" height="268" 
+  data-setup='{}'>
+    <source src="https://stream.mux.com/007rwZZxXijJ00M7COK4p01LrYsQt8Xfh01oUj5p3GAS02lw.m3u8" type='application/x-mpegURL'>
+  </video>
+  <script>
+  var player = videojs('my_video_1');
+  </script>
+					
 						<hr>
 
 						<div class="columns">
