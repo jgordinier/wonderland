@@ -7,10 +7,6 @@
 	<link href="https://fonts.gstatic.com" rel="preconnect">
 	<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 	<script src="https://kwes.io/v2/kwes-script.js" defer></script>
- <link href="http://vjs.zencdn.net/4.12/video-js.css" rel="stylesheet">
-  <script src="http://vjs.zencdn.net/4.12/video.js"></script>
- <script src="https://github.com/videojs/videojs-contrib-media-sources/releases/download/v0.1.0/videojs-media-sources.js"></script>
-  <script src="https://github.com/videojs/videojs-contrib-hls/releases/download/v0.11.2/videojs.hls.min.js"></script>
 	<style>
 	   .script {
 	      font-family: 'Pacifico', cursive;
@@ -103,13 +99,32 @@ border-radius: .5rem;
 
 							</div>
 						</div>
- <video id="my_video_1" class="video-js vjs-default-skin" controls preload="auto" width="640" height="268" 
-  data-setup='{}'>
-    <source src="https://stream.mux.com/007rwZZxXijJ00M7COK4p01LrYsQt8Xfh01oUj5p3GAS02lw.m3u8" type='application/x-mpegURL'>
-  </video>
-  <script>
-  var player = videojs('my_video_1');
-  </script>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<!-- Or if you want a more recent canary version -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/hls.js@canary"></script> -->
+<video id="video" class="center" style="width:75%; margin:0 auto; display:block;"  controls></video>
+<script>
+    var video = document.getElementById('video');
+    if(Hls.isSupported()) {
+        var hls = new Hls();
+        hls.loadSource('https://a32493d4d49a22c11e3930ddd718f29c.egress.mediapackage-vod.us-east-1.amazonaws.com/out/v1/262af4bc68e9484a96a44587056cc484/4c919508f674472d8a46747e78a94f5f/09ad252ffcea4c10998d7c1a63e74eba/index.m3u8');
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED,function() {
+            video.play();
+        });
+    }
+    // hls.js is not supported on platforms that do not have Media Source Extensions (MSE) enabled.
+    // When the browser has built-in HLS support (check using `canPlayType`), we can provide an HLS manifest (i.e. .m3u8 URL) directly to the video element through the `src` property.
+    // This is using the built-in support of the plain video element, without using hls.js.
+    // Note: it would be more normal to wait on the 'canplay' event below however on Safari (where you are most likely to find built-in HLS support) the video.src URL must be on the user-driven
+    // white-list before a 'canplay' event will be emitted; the last video event that can be reliably listened-for when the URL is not on the white-list is 'loadedmetadata'.
+    else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        video.src = 'https://a32493d4d49a22c11e3930ddd718f29c.egress.mediapackage-vod.us-east-1.amazonaws.com/out/v1/262af4bc68e9484a96a44587056cc484/4c919508f674472d8a46747e78a94f5f/09ad252ffcea4c10998d7c1a63e74eba/index.m3u8';
+        video.addEventListener('loadedmetadata',function() {
+            video.play();
+        });
+    }
+</script> 
 					
 						<hr>
 
