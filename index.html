@@ -1,33 +1,38 @@
 <!doctype html>
 
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-
   <title>Movie Time</title>
-  <meta name="description" content="The HTML5 Herald">
-  <meta name="author" content="SitePoint">
-
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
-
-</head>
-
-<body>
-<h1>Movie Time</h1>
-<html>
 <head>
 <style>
   .video-js {
     width: 1280px;
     height: 720px;
   }
+  .video-js-responsive-container.vjs-hd {
+    padding-top: 56.25%;
+}
+.video-js-responsive-container.vjs-sd {
+    padding-top: 75%;
+}
+.video-js-responsive-container {
+    width: 100%;
+    position: relative;
+}
+.video-js-responsive-container .video-js {
+    height: 100% !important; 
+    width: 100% !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 </style>
 </head>
 <body>
+  <div class="video-js-responsive-container vjs-hd">
 <video-js controls data-setup="{}">
   <source src="https://mia3.download.real-debrid.com/d/HTRBUTFKXWFPK23/Possessor.2020.UNCUT.1080p.WEBRip.x264-RARBG.mp4" type="video/mp4">
 </video-js>
-
+  </div>
 <link href="//vjs.zencdn.net/7.10.2/video-js.min.css" rel="stylesheet">
 <script src="//vjs.zencdn.net/7.10.2/video.min.js"></script>
 </body>
