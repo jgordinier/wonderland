@@ -14,5 +14,23 @@
 
 <body>
 <h1>Movie Time</h1>
-<iframe src="https://iframe.videodelivery.net/f87459e6c3208810781074d86814066a" style="border: none;" height="720" width="1280" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe>  
+<html>
+<head>
+<link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
+<style>
+  .video-js {
+    width: 600px;
+    height: 600px;
+  }
+</style>
+</head>
+<body>
+<video-js controls data-setup="{}">
+  <source src="https://storage.cloud.google.com/bucketName/folderName/recordingName.flv" type="video/flv">
+</video-js>
+
+<script src="https://unpkg.com/video.js/dist/video.min.js"></script>
+<script src="https://unpkg.com/videojs-flash/dist/videojs-flash.min.js"></script>
+</body>
+</html>
   </html>
